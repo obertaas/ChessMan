@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class CSSGenerator {
 
-
     static void createCSSFile(String pathName) {
         try {
             File file = new File(pathName);
