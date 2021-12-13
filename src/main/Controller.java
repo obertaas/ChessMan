@@ -8,7 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -57,12 +59,14 @@ public class Controller {
 
     @FXML
     void pawnSelected(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../fxml/windowWithPieces.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("../fxml/windowWithPieces.fxml"));
+        Stage window = (Stage) a7_pawn.getScene().getWindow();
+        //Dragboard dragboard = a7_pawn.startDragAndDrop(TransferMode.ANY);
 
         //ImageView a7_pawn_ = a7_pawn.getImage();
 
 
-        // System.out.println("Pawn move");
+        System.out.println("Pawn move");
 
     }
     @FXML
