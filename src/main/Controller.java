@@ -11,6 +11,8 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -24,11 +26,20 @@ public class Controller {
     private Button settingsButton;
     @FXML
     private Button newSceneButton;
+
     @FXML
-    private ImageView a7_pawn;
+    private ImageView e2_imageview;
 
     @FXML
     private Pane a7_pane;
+
+    @FXML
+    private AnchorPane mainWindow;
+
+    @FXML
+    private Pane a6_pane;
+
+
 
 
     @FXML
@@ -36,42 +47,84 @@ public class Controller {
         Stage mainWindow = (Stage) newGameButton.getScene().getWindow();
         String title = newGameButton.getText();
         mainWindow.setTitle(title+" yeahyeah");
-        //mainWindow.getScene().getStylesheets().add("style.css");
     }
 
     @FXML
     void newSceneButtonClicked(ActionEvent event) throws IOException {
-        //new ShowWindow((new Stage()), "Popup", "popUpWindow.fxml");
-        ShowWindow window = new ShowWindow((new Stage()), "Chessboard", "../fxml/windowWithPieces.fxml");
-        //window.getScene().getStylesheets().add("style.css");
+        ShowWindow window = new ShowWindow((new Stage()), "Chessboard", "../fxml/mainWindow.fxml");
     }
 
     @FXML
     void settingsButtonClicked(ActionEvent event) throws IOException {
-        //Parent root = FXMLLoader.load(getClass().getResource("windowWithPieces.fxml"));
-        Stage window = (Stage) a7_pane.getScene().getWindow();
+        Stage window = (Stage) settingsButton.getScene().getWindow();
         window.setTitle("style things");
-        //window.getScene().getStylesheets().add(getClass().getResource( "style.css" ).toExternalForm() );
         window.getScene().getStylesheets().add("css/style.css");
-        //a7_pane_code.getStylesheets().add(("style.css"));
 
     }
 
     @FXML
     void pawnSelected(MouseEvent event) throws IOException {
-        //Parent root = FXMLLoader.load(getClass().getResource("../fxml/windowWithPieces.fxml"));
-        Stage window = (Stage) a7_pawn.getScene().getWindow();
-        //Dragboard dragboard = a7_pawn.startDragAndDrop(TransferMode.ANY);
-
-        //ImageView a7_pawn_ = a7_pawn.getImage();
-
-
-        System.out.println("Pawn move");
-
+        System.out.println("pawn selected");
+        Stage window = (Stage) mainWindow.getScene().getWindow();
+        window.setTitle("pawn selected");
     }
+
     @FXML
-    void pawnDropped(DragEvent event) {
+    void mouseClicked(MouseEvent event) {
+
+        ImageView image = (ImageView) event.getSource();
+        Pane pane = (Pane) image.getParent();
+
+        System.out.println("Image clicked " + image);
+        //System.out.println("Image clicked " + e2_imageview);
+        System.out.println("---------------");
+        System.out.println("Pane clicked " + pane.toString());
+        
+    }
+
+
+
+
+    @FXML
+    void mousePressed(MouseEvent event) {
+        Pane image = (Pane) event.getSource();
+        image.setStyle(" -fx-background-color: green ; ");
 
     }
+
+    @FXML
+    void mouseDragged(MouseEvent event) {
+        event.getSource();
+    }
+
+    @FXML
+    void mouseReleased(MouseEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle(" -fx-background-color: green ; ");
+    }
+
+    @FXML
+    public void onDragDetected(MouseEvent mouseEvent) {
+        System.out.println("mouse dragged");
+
+        Pane pane = (Pane) mouseEvent.getSource();
+        pane.setStyle(" -fx-background-color: green ; ");
+
+    }
+
+    @FXML
+    void onDragDone(DragEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle(" -fx-background-color: green ; ");
+    }
+
+    @FXML
+    void onDragOver(DragEvent event) {
+        Pane pane = (Pane) event.getSource();
+        pane.setStyle(" -fx-background-color: green ; ");
+
+    }
+
+
 }
 

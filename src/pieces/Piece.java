@@ -1,16 +1,35 @@
 package pieces;
 
-import board.Location;
+import board.Board;
+import board.Square;
+
+import java.util.ArrayList;
 
 public abstract class Piece {
-    private Location location;
-    private Color color;
+    //final Square startSquare;
+    //protected Square square;
+    protected PieceType pieceType;
+    protected final Color color;
 
     // at creation the piece will be allocated to their start position
-    public Piece(Location startLocation, Color color) {
-        this.location = startLocation;
+    public Piece(Color color) {
+        //this.startSquare = startSquare;
+        //this.Square = startSquare;
         this.color = color;
     }
+
+
+
+    public abstract ArrayList<Square> legalMoves(Board board, Square fromSquare);
+
+
+    abstract boolean canMove(Board board, Square fromSquare, Square toSquare);
+
+
+    public Color getColor() {
+        return this.color;
+    }
+
 
 
 }

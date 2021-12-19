@@ -1,10 +1,11 @@
 package pieces;
 
-public enum Type {
+public enum PieceType {
     PAWN,
     KNIGHT,
     BISHOP,
     ROOK,
     QUEEN,
-    KING;
+    KING,
+    NONE;
 }

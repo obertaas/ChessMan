@@ -12,12 +12,8 @@ public class CSSGenerator {
     static void createCSSFile(String pathName) {
         try {
             File file = new File(pathName);
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getName());
-            }
-            else {
-                System.out.println("File already exists.");
-            }
+            if (file.createNewFile()) { System.out.println("File created: " + file.getName()); }
+            else { System.out.println("File already exists."); }
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -66,11 +62,9 @@ public class CSSGenerator {
         writeToCSSFile(pathName);
     }
 
-
     public static void main(String[] args) {
         createAndWriteCSSFile("src/css/chessPattern.css");
     }
-
 
 
 }
